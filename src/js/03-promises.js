@@ -11,8 +11,10 @@ function onSubmitForm(e){
   const amount = Number(e.currentTarget.amount.value);
 
   for (let position = 1; position <= amount; position += 1) {
-    checkPromise(position, delay);
-    delay += step;
+    if (delay >= 0) {
+      delay += step;
+      checkPromise(position, delay);
+    }
   };
 }
 
